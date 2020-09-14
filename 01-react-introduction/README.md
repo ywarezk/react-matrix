@@ -2,6 +2,16 @@
 
 In a nutshell what is React, and our first apps with React.
 
+## To learn react
+
+- React Core
+- Platform specific: web, mobile, desktop
+
+The platform we will choose is the browser
+And we will create web sites using React
+
+
+
 ## Lesson Plan
 
 - What is React
