@@ -4,6 +4,26 @@ JSX is the drawing language of a react component.
 It's really similar to HTML with some differences and some rules. 
 Let's go over the important rules we have to remember about JSX
 
+## What is JSX
+
+```
+<h1>hello world</h1>
+```
+
+babel will turn it to 
+
+```
+React.createElement(...)
+```
+
+## JSX is not html
+
+there are differences 
+
+## differences between JSX and HTML
+
+
+
 ## Lesson Plan
 
 - small letters html
