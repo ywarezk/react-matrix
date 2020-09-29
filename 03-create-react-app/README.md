@@ -12,6 +12,12 @@ We will go over the tools that create-react-app brings us, and the best practice
 - styles
 - deploy
 
+## Start a new react project
+
+```
+> npx create-react-app cra-demo
+```
+
 ## EX.
 
 - Create a new project using `create-react-app`
