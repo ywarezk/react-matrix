@@ -16,6 +16,9 @@ We will go over the tools that create-react-app brings us, and the best practice
 
 ```
 > npx create-react-app cra-demo
+> cd cra-demo
+> npm start
+> npm run build
 ```
 
 ## EX.
