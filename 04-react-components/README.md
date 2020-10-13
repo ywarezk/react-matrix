@@ -11,6 +11,14 @@ In this lessons we will focus on the tools that we have with React for building 
 - Events
 - useEffect
 
+## EX Todo list class component
+
+- Create a new app using `create-react-app`
+- Add a new `class` component called `TodoList`
+- `componentDidMount` send a request to the server: `https://nztodo.herokuapp.com/api/tasks/?format=json` after the component is initialized
+- save the response data to the state
+- component should display `ul-li` containing the `title` field of every object the server returned 
+
 ## EX Todo list
 
 - Create a new app using `create-react-app`
