@@ -12,7 +12,7 @@ class TodoService {
 	 */
 	getTodos() {
 		// Promise<Response>
-		return fetch('https://nztodo.herokuapp.com/api/tasks/?format=json')
+		return fetch('https://nztodo.herokuapp.com/api/taskssdfgsdfg/?format=json')
 			.then((response) => {
 				// Promise<[{...}, {...}]>
 				// response.json()

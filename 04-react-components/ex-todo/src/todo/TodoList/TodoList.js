@@ -17,11 +17,12 @@ export const TodoList = () => {
 	}, [])
 	
 	if (error) {
-		return (
-			<h1>
-				Something very terrible has happened {error.message}
-			</h1>
-		)
+		throw error;
+		// return (
+		// 	<h1>
+		// 		Something very terrible has happened {error.message}
+		// 	</h1>
+		// )
 	}
 	
 	return (
