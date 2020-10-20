@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import Countdown from './components/Countdown/CountdownClass';
+// import Countdown from './components/Countdown/CountdownClass';
+import Countdown from './components/Countdown/Countdown';
 // import HelloWorld from './components/HelloWorld/HelloWorld'
 import ToggleVisibility from './components/ToggleVisibility/ToggleVisibility';
 
 function App() {
 	const extraProps = {foo: 'bar', piletshvily: 'chaitovsky', sweetness: 'fluffy belly'}
+	
+	const [isCountdown, setIsCountdown] = useState(true);
 	
 	return (
 		<div className="App">
@@ -23,9 +26,12 @@ function App() {
 			
 			<HelloWorld /> */}
 			
-			<ToggleVisibility />
+			{/* <ToggleVisibility /> */}
 			
-			<Countdown initialCount={7} />
+			{
+				isCountdown && <Countdown initialCount={3} destroyCb={setIsCountdown} />
+			}
+			
 			
 			{/* <Countdown />
 			
