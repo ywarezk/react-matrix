@@ -117,3 +117,6 @@ the component will have a button to create a new log and you should see the new 
 const [logs, createLogs] = useLogs(someGroup); 
 ```
 
+the solution is here:
+- https://www.youtube.com/watch?v=-tmLZX6scnY&t=3930s
+
