@@ -5,11 +5,11 @@
  
  */
 
-import { useState } from "react"
+import React, { useState } from "react"
 
 export default function forms(initialState) {	
 	return function(WeakForm) {		
-		return function StrongForm() {
+		return function StrongForm(props) {
 			const [formValues, setFormValues] = useState(initialState);
 			
 			const handleChange = (event) => {
@@ -21,7 +21,7 @@ export default function forms(initialState) {
 			
 			return (
 				<WeakForm 
-					{...this.props}
+					{...props}
 					handleChange={handleChange}
 					formValues={formValues} />
 			)

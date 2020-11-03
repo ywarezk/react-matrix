@@ -5,9 +5,9 @@ import StrongForm from '../../render-props/StrongForm';
 
 export default function Login(  ) {
 		
-	const handleSubmit = (event) => {
+	const handleSubmit = (values, event) => {
 		event.preventDefault();
-		console.log(`Email: ${formValues.email} Password: ${formValues.password}`);
+		console.log(values)
 	}
 	
 	return (
@@ -15,7 +15,7 @@ export default function Login(  ) {
 			{
 				(formValues, handleChange) => {
 					return (
-						<form onSubmit={handleSubmit} noValidate>
+						<form onSubmit={(event) => handleSubmit(formValues, event)} noValidate>
 							<input 
 								value={formValues.email}
 								onChange={handleChange}

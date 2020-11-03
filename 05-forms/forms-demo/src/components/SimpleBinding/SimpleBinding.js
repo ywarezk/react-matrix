@@ -39,7 +39,7 @@ const SimpleBinding =  () => {
 		<form onSubmit={handleSubmit}>
 			<input 
 				onChange={handleNameChange}
-				{...inputProps}
+				{...inputProps}	
 				name="yourFullName"
 				type="text" 
 				placeholder="Enter your name" 

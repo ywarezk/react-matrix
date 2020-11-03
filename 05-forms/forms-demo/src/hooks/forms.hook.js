@@ -1,7 +1,4 @@
-
-class StamSingleTon {
-	
-}
+import {useState} from 'react';
 
 export default function useForms(initialState) {
 	const [formValues, setFormValues] = useState(initialState)
