@@ -2,8 +2,11 @@ import React, { useContext } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import PropTypes from 'prop-types'
-import {JwtContext, StamContext, AviContext} from '../';
+import {JwtContext, StamContext, AviContext, authSlice} from '../';
+import { useDispatch } from 'react-redux';
 
+
+// dispatch => store.dispatch(action)
 
 const loginSchema = yup.object().shape({
 	email: yup.string().required('dfasdf').email().min(8, 'fffff'),
@@ -11,8 +14,9 @@ const loginSchema = yup.object().shape({
 })
 
 export function Login( ) {
-	const {setJwt} = useContext(JwtContext);
-	useContext(AviContext);
+	// const {setJwt} = useContext(JwtContext);
+	// useContext(AviContext);
+	const dispatch = useDispatch()
 	
 	const handleSubmit = async (values) => {
 		const response = await fetch(
@@ -27,13 +31,15 @@ export function Login( ) {
 		)
 		const tokenObj = await response.json();
 		// {token: 'asdfsvzxcvasdfsdfacsvcvbSRTXCVxcvsdfasfgdghd'}
-		setJwt(tokenObj.token);
+		// setJwt(tokenObj.token);
 		/*setJwt((jwt) => {
 			return {
 				...jwt,
 				
 			}
 		})*/
+		
+		dispatch(authSlice.actions.setToken(tokenObj.token));
 	}
 	
 	return (
@@ -41,7 +47,7 @@ export function Login( ) {
 			initialValues={ { email: '', password: '' } }	
 			onSubmit={handleSubmit}
 			validationSchema={loginSchema}
-		>			
+		>
 			<Form noValidate>
 				<h1>
 					Login
