@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import PropTypes from 'prop-types'
+import {JwtContext, StamContext, AviContext} from '../';
+
 
 const loginSchema = yup.object().shape({
 	email: yup.string().required('dfasdf').email().min(8, 'fffff'),
 	password: yup.string().required().min(5)
 })
 
-export function Login( {cb} ) {
+export function Login( ) {
+	const {setJwt} = useContext(JwtContext);
+	useContext(AviContext);
+	
 	const handleSubmit = async (values) => {
 		const response = await fetch(
 			'https://academeez-login-ex.herokuapp.com/api/users/login',
@@ -21,7 +26,14 @@ export function Login( {cb} ) {
 			}
 		)
 		const tokenObj = await response.json();
-		cb(tokenObj.token);
+		// {token: 'asdfsvzxcvasdfsdfacsvcvbSRTXCVxcvsdfasfgdghd'}
+		setJwt(tokenObj.token);
+		/*setJwt((jwt) => {
+			return {
+				...jwt,
+				
+			}
+		})*/
 	}
 	
 	return (
@@ -54,5 +66,5 @@ export function Login( {cb} ) {
 }
 
 Login.propTypes = {
-	cb: PropTypes.func.isRequired
+	// cb: PropTypes.func.isRequired
 }

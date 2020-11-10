@@ -1,7 +1,8 @@
 import './App.css';
-import { Login } from '../auth';
+import { Login, JwtContext, StamContext, AviContext } from '../auth';
 import { TodoList } from '../todo';
 import { useState } from 'react';
+
 
 export function App() {
 	const [token, setToken] = useState(null)	
@@ -9,14 +10,19 @@ export function App() {
 	return (
 		<div className="App">
 			<div className="container">
-				<div className="row">
-					<div className="col-6">
-						<Login cb={setToken} />
-					</div>
-					<div className="col-6">
-						<TodoList token={token} />
-					</div>
-				</div>
+				<StamContext.Provider value="stam">
+					<JwtContext.Provider value={ {jwt: token, setJwt: setToken} }>				
+						<div className="row">
+							<div className="col-6">
+								<Login />
+							</div>
+							<div className="col-6">
+								<TodoList />
+							</div>
+						</div>
+					</JwtContext.Provider>				
+				</StamContext.Provider>
+				
 			</div>
 		</div>
 	);

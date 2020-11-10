@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { JwtContext } from '../../auth';
 
 export function TodoList( {token} ) {
 	const [todos, setTodos] = useState([])
+	const {jwt} = useContext(JwtContext);
 	
 	useEffect(() => {
-		if (!token) return;
+		if (!jwt) return;
 		
 		fetch('https://academeez-login-ex.herokuapp.com/api/tasks', {
 			headers: {
-				'Authorization': `Bearer ${token}`
+				'Authorization': `Bearer ${jwt}`
 			}
 		})
 		.then(
@@ -21,7 +23,7 @@ export function TodoList( {token} ) {
 			setTodos(json);
 		})
 		
-	}, [token])
+	}, [jwt])
 	
 	return (
 		<>
